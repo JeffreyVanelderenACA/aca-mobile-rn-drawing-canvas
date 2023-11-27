@@ -1,6 +1,7 @@
 # aca-mobile-rn-drawing-canvas
 
-This package supports drawing on a canvas via Skia. This can be used for signatures or any other requirement which involves drawing and using the result.
+This package supports drawing on a canvas via Skia. This can be used for signatures or any other requirement which
+involves drawing and using the result.
 
 ## Installation
 
@@ -8,19 +9,26 @@ This package supports drawing on a canvas via Skia. This can be used for signatu
 npm install aca-mobile-rn-drawing-canvas
 ```
 
-This library uses `react-native-skia` and `react-native-gesture-handler` to handle touch events. Don't  forget to add the `GestureHandlerRootView` in the root of your app!
+or
+
+```sh
+yarn add aca-mobile-rn-drawing-canvas
+```
+
+This library uses `react-native-skia` and `react-native-gesture-handler` to handle touch events. Don't forget to add
+the `GestureHandlerRootView` in the root of your app!
 
 ## Usage
 
 ```js
-import React, {useRef, useState} from 'react';
-import {Pressable, SafeAreaView, Text, View} from 'react-native';
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import React, { useRef, useState } from 'react';
+import { Pressable, SafeAreaView, Text, View } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { DrawingCanvas } from 'aca-mobile-rn-drawing-canvas';
 
 const App = () => {
-  const drawingCanvasRef = useRef<DrawingCanvasRef | null>(null);
-  const [isDrawingDisabled, setIsDrawingDisabled] = useState<boolean>(false);
+  const drawingCanvasRef = useRef < DrawingCanvasRef | null > (null);
+  const [isDrawingDisabled, setIsDrawingDisabled] = useState < boolean > (false);
 
   const Controls = (
     <View style={S.row}>
@@ -62,6 +70,23 @@ const App = () => {
   );
 };
 ```
+
+## Properties
+
+| Property    | Type                                                     | Required |
+|-------------|----------------------------------------------------------|----------|
+| pathConfig  | `Partial<SkiaDefaultProps<PathProps, 'start' \| 'end'>>` | No       |
+| disabled    | `boolean`                                                | No       |
+| style       | `ViewStyle`                                              | No       |
+| onDrawStart | `() => void`                                             | No       |
+| onDrawEnd   | `() => void`                                             | No       |
+
+## Methods via forwarded reference
+
+| Name         | Type                                           |
+|--------------|------------------------------------------------|
+| clearPaths   | `() => void`                                   |
+| takeSnapshot | `(rectangle?: SkRect) => SkImage \| undefined` |
 
 ## Contributing
 
