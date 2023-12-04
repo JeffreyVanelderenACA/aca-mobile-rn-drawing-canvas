@@ -1,5 +1,5 @@
 {
-  "name": "aca-mobile-rn-drawing-canvas",
+  "name": "@acagroup/aca-mobile-rn-drawing-canvas",
   "version": "0.1.0",
   "description": "This package supports drawing on a canvas via Skia. This can be used for signatures or any other requirement which involves drawing and using the result.",
   "main": "lib/commonjs/index",
@@ -39,13 +39,16 @@
     "ios",
     "android"
   ],
-  "repository": "https://stash-ui.aca-it.be/projects/MOBDC/repos/aca-mobile-drawing-canvas",
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/aca-it/aca-mobile-drawing-canvas"
+  },
   "author": "jeffreyvanelderen <jeffrey.vanelderen@acagroup.be> (https://github.com/JeffreyVanelderenACA)",
   "license": "MIT",
   "bugs": {
-    "url": "https://stash-ui.aca-it.be/projects/MOBDC/repos/aca-mobile-drawing-canvas/issues"
+    "url": "https://bitbucket.org/aca-it/aca-mobile-drawing-canvas/issues"
   },
-  "homepage": "https://stash-ui.aca-it.be/projects/MOBDC/repos/aca-mobile-drawing-canvas#readme",
+  "homepage": "https://bitbucket.org/aca-it/aca-mobile-drawing-canvas/src/master/README.md",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
