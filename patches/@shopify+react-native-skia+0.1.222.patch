@@ -1,0 +1,70 @@
+diff --git a/node_modules/@shopify/react-native-skia/src/dom/nodes/Node.ts b/node_modules/@shopify/react-native-skia/src/dom/nodes/Node.ts
+index ff64913..d4665c4 100644
+--- a/node_modules/@shopify/react-native-skia/src/dom/nodes/Node.ts
++++ b/node_modules/@shopify/react-native-skia/src/dom/nodes/Node.ts
+@@ -54,7 +54,7 @@ export abstract class JsiNode<P> implements Node<P> {
+     const index = this._children.indexOf(child as JsiNode<unknown>);
+     if (index !== -1) {
+       const [node] = this._children.splice(index, 1);
+-      node.dispose();
++      node?.dispose();
+     }
+   }
+ 
+diff --git a/node_modules/@shopify/react-native-skia/src/dom/types/DeclarationContext.ts b/node_modules/@shopify/react-native-skia/src/dom/types/DeclarationContext.ts
+index 8c86877..16597ac 100644
+--- a/node_modules/@shopify/react-native-skia/src/dom/types/DeclarationContext.ts
++++ b/node_modules/@shopify/react-native-skia/src/dom/types/DeclarationContext.ts
+@@ -49,7 +49,7 @@ class Declaration<T> {
+   }
+ 
+   popAll() {
+-    return this.decls.splice(this.index, this.decls.length - this.index);
++    return this.decls.splice(this.index!, this.decls.length - this.index!);
+   }
+ 
+   popAllAsOne() {
+diff --git a/node_modules/@shopify/react-native-skia/src/dom/types/DrawingContext.ts b/node_modules/@shopify/react-native-skia/src/dom/types/DrawingContext.ts
+index 44d3c23..2fa2bb1 100644
+--- a/node_modules/@shopify/react-native-skia/src/dom/types/DrawingContext.ts
++++ b/node_modules/@shopify/react-native-skia/src/dom/types/DrawingContext.ts
+@@ -37,11 +37,11 @@ export class JsiDrawingContext implements DrawingContext {
+   }
+ 
+   get paint() {
+-    return this.paints[this.paints.length - 1];
++    return this.paints[this.paints.length - 1]!;
+   }
+ 
+   private save() {
+-    const childPaint = this.paint.copy();
++    const childPaint = this.paint!.copy();
+     this.paints.push(childPaint);
+   }
+ 
+@@ -57,7 +57,7 @@ export class JsiDrawingContext implements DrawingContext {
+     const paint = new ConcatablePaint(this.Skia, this.declarationCtx, node);
+     if (!paint.isPristine()) {
+       this.save();
+-      paint.concatTo(this.paint);
++      paint.concatTo(this.paint!);
+       return true;
+     }
+     return false;
+diff --git a/node_modules/@shopify/react-native-skia/src/skia/types/Shader/Shader.ts b/node_modules/@shopify/react-native-skia/src/skia/types/Shader/Shader.ts
+index 7f7e016..a311829 100644
+--- a/node_modules/@shopify/react-native-skia/src/skia/types/Shader/Shader.ts
++++ b/node_modules/@shopify/react-native-skia/src/skia/types/Shader/Shader.ts
+@@ -47,10 +47,10 @@ export const processUniforms = (
+       );
+     }
+     if (builder === undefined) {
+-      processValue(result, value);
++      processValue(result, value!);
+     } else {
+       const uniformValue: number[] = [];
+-      processValue(uniformValue, value);
++      processValue(uniformValue, value!);
+       builder.setUniform(name, uniformValue);
+       result.push(...uniformValue);
+     }

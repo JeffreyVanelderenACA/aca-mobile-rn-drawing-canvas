@@ -32,7 +32,8 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "clean": "del-cli lib",
     "prepare": "bob build",
-    "release": "release-it"
+    "release": "release-it",
+    "postinstall": "patch-package"
   },
   "keywords": [
     "react-native",
@@ -79,6 +80,7 @@
   },
   "dependencies": {
     "@shopify/react-native-skia": "^0.1.221",
+    "patch-package": "^8.0.0",
     "react-native-gesture-handler": "^2.13.4",
     "react-native-reanimated": "^3.5.4"
   },
