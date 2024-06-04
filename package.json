@@ -1,5 +1,5 @@
 {
-  "name": "@acagroup/aca-mobile-rn-drawing-canvas",
+  "name": "@aca-mobile-os/aca-mobile-rn-drawing-canvas",
   "version": "0.1.0",
   "description": "This package supports drawing on a canvas via Skia. This can be used for signatures or any other requirement which involves drawing and using the result.",
   "main": "lib/commonjs/index",
